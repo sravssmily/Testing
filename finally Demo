@@ -1,0 +1,18 @@
+packages exceptionpractices;
+public class finallyDemo {
+public static void main (String[] args){
+int i = 9;
+int i = 0;
+System.out.println("Result" +i/j);
+}
+catch(Exceeption e) {
+     e.printStackTrace();
+     }
+     finally {
+     System.out.println("Result for addition " + i+j);
+     System.out.println("Result for subtraction" + i-j);
+     System.out.println("Result for multiplication" + i*j);
+     }
+     }
+     
+
