@@ -1,0 +1,175 @@
+
+become a root user:
+
+# sudo su -
+
+Create a working directory[folder]
+
+# mkdir myproject
+
+Go inside the directory
+
+# cd myproject
+
+create empty files
+
+# touch file1.java file2.java
+
+Create a local repo
+
+# git init
+
+===================================================
+
+git configurations:
+
+git config --global user.name sonal
+
+
+git config --global user.email sonal@gmail.com
+
+
+Configurations are of 3 types:
+================================
+
+Config Variables: user.name and user.email
+
+Local: The configuration when set with flag a local, the config variable will be application only to that particulr repository
+
+Global : The configuration when set with flag as global, the config variable will be application to every repository created by current user logged in the machine
+
+System : The configuration when set with flag as system, the config variable will be application to every repository created by every user logged in the machine
+
+
+Assignment:
+=====================
+
+Remove the configurations:
+
+==========================
+git config --global --unset user.name
+
+git config --global --unset user.email
+
+
+Find out the file/location where the git configuration are saved:
+================================
+
+local:
+
+global: cat ~/.gitconfig
+
+system: 
+
+
+========================================
+Adding a file to Local repo
+=====================================
+
+# git status
+
+# git add .
+
+OR
+
+# git add -a  // add all the files
+
+# git status
+
+# git commit -m "added file file1 and file2"
+
+==============================================
+
+Take an existing file which is tracked by GIT and do some modifications.
+Commit the changes to git
+====================================================
+
+Make changes in the file--> add some content in the file
+
+Edit the file
+
+# nano file1.java
+
+Insert any data
+
+To save and exit
+
+Press CTL x
+
+press y
+
+press enter key
+
+Now check git status:
+
+# git status
+
+======================================================
+
+To check the commit history on a git repository
+==================================================
+
+# git log
+
+# git log --oneline
+
+Assignment:
+===================
+
+1. How can i find log of git commits from one date to another date
+
+--since=<date>, --after=<date>
+           Show commits more recent than a specific date.
+
+ --until=<date>, --before=<date>
+           Show commits older than a specific date.
+
+2. Move/copy/push your git log history in a new text file
+
+===============================================
+
+Take an exisitng file from local repo and 
+
+Delete it from Local repo and working directory
+
+
+# git ls-files
+
+Choose a filename to be deleted
+
+Execute the git delete command to delete a file from Local Repo and Working directory
+
+# git rm <filename>
+
+git rm file1.java
+
+File will be removed from LR and WD
+
+# git ls-files   // file will not be LR
+
+# ls                // file will not be in WD
+Commit the deletion of file:
+
+# git commit -m "deletion of file"
+
+# git log --oneline
+
+==================================================
+
+Revert command
+============================================
+
+1. File --> present in the LR and WD (old state1)
+
+File --> deleted the file from LR and WD (new state)
+
+we got a commit id --> commit2
+
+you want the file back
+
+git revert commit2
+
+Revert command will always work on a commit id
+
+Whatever happened in the commit will go back to its original state.
+
