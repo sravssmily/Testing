@@ -1,0 +1,146 @@
+How to create MySQL database using JDBC?
+How to select MySQL database to work with it?
+How to delete MySQL database using JDBC command.
+This chapter will explain all the database related query. It is almost your first JDBC program and it is necessary to have a database for further experiment like creating table and inserting data. In this chapter you will learn how can you create a database right from your Java Program using JDBC.
+
+CREATING DATABASE
+import java.sql.*;
+public class sample 
+{
+	
+	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	   static final String dburl = "jdbc:mysql://localhost/";	   
+	   static final String dbuser = "root";
+	   static final String dbpass = "root";
+	   
+public static void main(String[] args)
+{
+	Connection con = null;
+	Statement stmt = null;
+	
+	try 
+	{
+	    //Step 1 : Connecting to Server
+	    con = DriverManager.getConnection(dburl, dbuser, dbpass);	    
+	    //Step 2 : Initialize Statement
+	    stmt=con.createStatement();
+	    //Step 3 : SQL Query
+ String query="CREATE DATABASE STOREDB";
+	    //Step 4 : Run Query
+	    stmt.executeUpdate(query);
+	    System.out.println("Database STOREDB Created Successfully");
+	} 
+	
+	catch (SQLException e) 
+	{
+	    System.err.println("Cannot connect ! ");
+	    e.printStackTrace();
+	}
+	
+	finally {
+	    System.out.println("Closing the connection.");
+	    if (con != null) try { con.close(); } catch (SQLException ignore) {}
+	}
+	}
+}
+EXPLANATION
+There is 4 steps to execute any query against database.
+
+Step 1 : Connecting to Server. You can connect to server using following line of code.
+
+con = DriverManager.getConnection(dburl, dbuser, dbpass);
+Step 2 : : Initialize Statement. Statement class is used for carrying your query to server and execute query.
+
+stmt=con.createStatement();
+Step 3 : : SQL Query. This is your sql query which is used to create database.
+
+String query="CREATE DATABASE STOREDB";
+Step 4 : : Run Query. Finally execute your query using statement object.
+
+stmt.executeUpdate(query);
+SELECT DATABASE
+It is necessary to select right database before creating table or connecting your program. There may be dozens of databases resides in server so you need to select your correct database before executing query. You have learned and created STOREDB just now. It’s time to learn how to select your STOREDB database using JDBC.
+
+Programming Example
+
+package SelectDatabase;
+
+import java.sql.*;
+
+public class SelectDatabase
+{
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	static final String dburl = "jdbc:mysql://localhost/STOREDB";	   
+	static final String dbuser = "root";
+	static final String dbpass = "root";
+	   
+public static void main(String[] args)
+{
+Connection con = null;
+	Statement stmt = null;
+	
+	try 
+	{
+	    //Step 1 : Connecting to Server and Selecting Database
+	    con = DriverManager.getConnection(dburl, dbuser, dbpass);
+	    System.out.println("Database STOREDB Selected Successfully");
+	} 
+	
+	catch (SQLException e) 
+	{
+	    System.err.println("Cannot connect ! ");
+	    e.printStackTrace();
+	}
+	
+	finally {
+	    System.out.println("Closing the connection.");
+	    if (con != null) try { con.close(); } catch (SQLException ignore) {}
+	}
+	}
+}
+RENAMING DATABASE
+There is no support for renaming database in MySQL. So instead of renaming database you can create new database and import data from old database. In the next chapter you will learn how to work with Table in JDBC.
+
+DELETING DATABASE
+Till now, you have learned how to create and select database using JDBC. Now, final task is deleting database. However, it is recommended you to after deleting database you must recreate it because this database is going to use for entire tutorial.
+
+package SelectDatabase;
+import java.sql.*;
+
+public class DeleteDatabase 
+{
+	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	   static final String dburl = "jdbc:mysql://localhost/";	   
+	   static final String dbuser = "root";
+	   static final String dbpass = "root";
+public static void main(String[] args)
+{
+	Connection con = null;
+	Statement stmt = null;
+	
+	try 
+	{
+	    //Step 1 : Connecting to Server
+	    con = DriverManager.getConnection(dburl, dbuser, dbpass);	    
+	    //Step 2 : Initialize Statement
+	    stmt=con.createStatement();
+	    //Step 3 : SQL Query
+	    String query="DROP DATABASE STOREDB";
+	    //Step 4 : Run Query
+	    stmt.executeUpdate(query);
+	    System.out.println("Database STOREDB Deleted Successfully");
+	} 
+	
+	catch (SQLException e) 
+	{
+	    System.err.println("cannot connect !");
+ e.printStackTrace();
+	}
+	
+	finally {
+	    System.out.println("Closing the connection.");
+	    if (con != null) try { con.close(); } catch (SQLException ignore) {}
+	}
+	
+}
+}
