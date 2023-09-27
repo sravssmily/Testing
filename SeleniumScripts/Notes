@@ -1,0 +1,400 @@
+Pls install Eclipse IDE for Java Developers
+
+Try to open it and try to create a java project in it
+
+Try to create a Java class and run a java program
+
+If it is working. you are ready to go
+=========================================
+
+If the program is not working, then Pls make sure you have Java installed in your laptop
+
+version >=11 
+
+=============================================================================
+
+Manual Testing
+========================
+
+12 am
+
+20 tersters --> 20000 customer forms --> to check if 20000 accounts are created or not
+
+Easy task? -> No
+
+tedious, repetitive
+
+10 hours -> time consuming
+
+skip certain functionalities from testing
+
+Tester assume that feature will work, any may skip scenarios
+
+May ignore certain use cases
+
+human error 
+
+
+
+To overcome these challenges-> Automation tools/Testing
+
+Whenever we have:
+> repetitive tasks, time consuming tasks
+> regression Tests
+> lot of testing for same feature every day
+
+
+Everyday --> 3 PM we get a new Build in the test envrionment-->Regression testing
+Instead of manually doing this regression testing, we can have an automation tool
+to run those simple test cases as soon as the build is deployed in test environment
+
+I have some test cases to be run at 11 PM--> we can use an automation tool and write automation tests--> scehdule them to ru   at 11 pm --> generate the report for you
+
+When you have same test to be run with different test data --> i can use an automation tool --. write automation tests--> send different test data to my automation tests
+
+You want to test performance/load of your application --> use automation tools
+
+When you lot of test cases to be run--> use automationt ool to complete testing
+
+time taken to complete testing is less with automation tool
+
+Automation tool:
+==================
+
+Selenium --> Web application Functional testing tool
+
+Introduced year - 2004 -> JASON Huggins --> selenium1 --> 2008(selenium 2) --> 2016(Selenium 3)--> 2021(selenium 4)
+
+It is an Open source tool and free tool
+
+Selenium is to do functional testing/regression testing of web application
+
+Selenium + Applium --> used for Mobile application testing
+
+Selenium WebDriver is the component used for writing automation scripts
+Its does not have a front -end, so you have to write test scripts
+
+Script : what automation test steps shoudl selenium perform
+
+These scripts can be written in -> JAVA, pyhton, ruby, C#, php
+
+Selenium also has component IDE -> which has a UI
+
+Selenium supports testing on all the browser -> Cross browser testing: Chrome, Edge, ff, safari
+
+It is a stack of tools
+
+1. Selenium IDE : Integrated devlopment environment
+==================================================
+It can downloaded on chrome browser as an extension
+https://www.selenium.dev/selenium-ide/
+
+Features:
+==============================
+It supports testing on Chrome and firefox browser
+It is record and playback tool
+It records users actions and you save that as a test
+Play it back as many times as you want
+Simple and easy to work with
+The log section will show test step is success or failure
+At the end in log you will get test executed successfully or it failed
+Suitable for testers w
+ho are new automation
+Who donot know how to write code
+
+============================
+Disadvantages:
+
+Every time the test case will run with same test data
+passing multiple test data is not possible with IDE
+Everytime any new test case we have to manually record
+We dont have advance features like:
+
+> Wait times
+> Paramterized testing
+> Data driven not allowed
+> No reports are generated
+> no scheduling of scripts 
+> pritoritze test cases
+> pre-condition, post condition
+=================================================
+
+2. Selenium WebDriver
+==================================================
+Selenium Webdriver is the main component of Selenium- where we will do exhaustive automation testing.
+This component has to user interface rather it has selenium libraries which needs to be added in your eclipse
+Usinng webdriver libraries you will selenium scripts
+Every programming lanaguge supported by selenium will have its corresponding selenium webdriver libraries
+
+Selenium webdriver provides interfaces, classes and methods that help us find the element to be tested and automatically perform as action
+ What ever we did in IDE manually, we will do via code in webdriver
+
+Features:
+==================
+> supports testing on all browser
+> Wait times
+> Paramterized testing
+Integrate Webdriver with tools like testNG and cucumber that enhances the fetaures of selenium webdriver
+> Data driven testing
+> pritoritze test cases
+> pre-condition, post condition
+> reports generation
+
+Because of W3C prootocal with Selenium 4:
+
+> tets cases run faster as there is no need to Encode or decode the scripts
+> Testing is more consistent and works better on croass browser
+> browser specific exception --> now we dont get those with selenium 4
+>No need to download drivers in the system --> webDriver Manager -> it will automatically download each driver and works with all browser
+
+
+3. Selenium GRID
+=======================
+
+Grid is that component of selenium which is used only for execution
+
+We dont write sscripts using grid
+
+If you want to execute test cases in distributed environment-> use grid
+
+===========================================
+
+Go to File --> New--> select project --> select maven project
+
+A new maven project template will open
+
+Click on checkbox for - create simple project
+
+Un check default workspace
+
+from the frop down select  toption ending with eclipse workspace
+
+If you dont find it then select it by clicking on Browse button
+
+Click on checkbox og workspace
+
+Press Next button
+
+Enter a unique name for Group ID: selenium-Basics
+
+Artifact ID : selenium-Basics
+
+Always Artifact ID and group id will be same
+
+Click on finish 
+
+
+In the project Explorer, you will see your maven project
+
+Expand the project now
+
+You will see a file called --> pom.xml file
+
+Double click and open the file
+==================================================
+
+On you laptop:
+====================================================
+
+Make sure :
+
+> only 1 JAVA version should be there- preffered java version 11
+
+> Set up environment variable : JAVA_HOME and JAVA_PATH
+
+> Install eclipse for java developers 2021 -06
+
+> Create a Mavan project
+
+> Add the Dependencies in POM.xml
+
+> Create your programs.
+
+=================================
+
+=============================================
+
+HTML Page: Collection of web elements
+
+Elelments     Actions can we perform
+========================================================================
+
+TextBox : element is visible or not, enabled or not, input data(char,inte)
+
+Button : element is visible or not, enabled or not, clickable or not
+
+Link : element is visible or not, enabled or not, clickable or not
+
+DropDown: element is visible or not, enabled or not, selection, count the number of choices
+
+CheckBox : element is visible or not, enabled or not, click
+
+Radiobutton: element is visible or not, enabled or not, click
+
+Tables,
+
+Dynamic dropdowns, Calender
+
+==========================================================
+Now we want selenium to perform the testing for us:
+
+1. Open the browser
+
+2. Enter the URL
+
+3. Maxamize the browser window
+
+4. Delete cookies of the browser
+
+5. Find the username textbox , check if it displayed or not
+
+6. Find the username textbox , check if it enabled or not
+
+7. Find the username textbox , check if you insert data init or not.
+
+5. Find the passowrd textbox , check if it displayed or not
+
+6. Find the password textbox , check if it enabled or not
+
+7. Find the password textbox , check if you insert data init or not.
+
+
+================================================
+
+We want selenium to find an element and perform an action on it
+
+How to find the address of the element?
+
+Selenium provides us Locators that will help you find the address of your element on the webpage
+
+There are total 8 locators:
+
+1. id               
+
+2. name
+
+3. linkText
+
+4. Partiallinktext
+
+5. CSS
+
+6. XPATH
+
+7. tagname
+
+8. classname
+
+
+===========================
+
+Selenium gives following syntax that you will use to provide element address in the script
+
+
+ driver.findElement(By.locatorname("value"))
+
+findElement : method
+By: class
+locatorname: locator method
+value: we get form the webpage
+===========================================
+How do we get the value:
+============================================
+1. Go to the webpage which is to tested
+
+2. select the element to be tested
+
+3. right click on the element --> click inspect
+
+4. At bottom, you will the complete document of the page--> you will be on the element tab
+
+5. You will also see a line which highlighted in blue color
+
+6. The highlighted html tag are the attributes of the element
+
+<input id="wpName2" name="wpName" size="20" class="loginText mw-userlogin-username cdx-text-input__input" placeholder="Enter your username" tabindex="1" required="" autocomplete="username">
+
+Using these attribites we will  find the locator value of the element
+
+=========================================
+
+Suppose i want to find the element using ID locator
+=============================================
+
+Element: 			locator:		value
+
+1. username  			id			wpName2
+
+2.password			id   			wpPassword2
+
+3. retype			id 			wpRetype
+
+Suppose I want to find the above element using name locator
+=============================================
+
+Element: 			locator:		value
+
+1. username			name			wpName
+  			
+2.password			name			wpPassword
+
+3. retype			name 			retype
+
+LinkText localtor
+=================================
+driver.findElement(By.linktext("org.openqa.selenium")
+
+driver.findElement(By.linktext("org.openqa.selenium.bidi.browsingcontext"))
+
+PartialLinktext locator:
+================================
+This is usefull, when you ahve links with unique text and links have longer text
+then we can use partial link text
+
+driver.findElement(By.partialLinktext("selenium");
+
+
+driver.findElement(By.partialLinktext(".browsingcontext"))
+
+=============================================
+
+
+XPATh Functions:
+
+===================
+
+Regualr xpath:
+
+//tagname[@attribute='exactvalue']
+
+1. starts-with()
+
+//tagname[starts-with(@attribute,'startingtextvalue')]
+
+here we will proivde the starting value of the attribute
+
+for example:
+
+attribute ==> name = name8ca553fc
+
+nameb7cb2d8b
+
+//tagname[starts-with(@name,'login')]
+
+2. contains()
+
+attribute ==> name = login8ca553fc
+
+//tagname[contains(@attribute,'anytextvalue')]
+
+// input[contains(@name,'login')]
+
+3. text() --> used for link elements
+
+//tagname[text()='value']
+
+<a>log in </a>
+
+//a[text()='log in']
+
+<a class="blog-pager-newer-link" href="http://seleniumpractise.blogspot./2016/08/how-to-handle-autocomplete-feature-in.html" id="Blog1_blog-pager-newer-link" title="Newer Post">Newer Post</a>
