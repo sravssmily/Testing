@@ -1,0 +1,156 @@
+Handling Web Elements in Selenium
+August 7, 2021 by G C Reddy
+Handling Web Elements in Selenium, Inspect Web/HTML Elements, Locating elements, performing actions on elements, and writing Selenium Test Steps.
+
+Handling Web Elements in Selenium, handle browser, edit box, button, link, checkbox, radio button, image, dropdown box, text, popup window, web/HTML table, web frame, etc,
+
+Handling Web Elements using Selenium
+Pre-requisites to create Test cases in Selenium
+
+1. Web/HTML Elements
+2. Element Locators (To recognize/identify Elements)
+3. WebDriver Methods (To perform operations on Elements)
+4. Programming features (To enhance Test cases)
+
+1. Web/HTML Elements
+Browser,
+Page,
+Frame,
+
+Link – click – It redirects
+Edit box – Enter a value – It holds the value
+Button – click – It submits
+Dropdown box – select an item – It holds the item
+List Box – Select one or more items – It holds one or more items
+Combo box (Dropdown box + edit box) – select an item or type an item
+Radio button – click – It selects an option
+Checkbox – click – cheek or uncheck
+Text – Information/display
+Image (general image, image link, and image button)
+TextArea – Enter text –
+Web Table/HTML Table
+etc,
+
+Date picker
+Mouse hover
+Inline Elements
+Etc,
+
+2. Element Locators
+id()
+name()
+className()
+tagName()
+linkText()
+partialLinkText()
+cssSelector()
+xpath()
+
+3. Selenium WebDriver Methods
+1. get(arg/url)
+2. getTitle()
+3. getCurrentUrl()
+4. manage()
+5. navigate()
+.to(arg/url)
+.back()
+.forward()
+.refresh()
+
+6. close()
+7. quit()
+
+8. findElement()
+9. findElements()
+10. sendKeys()
+11. click()
+12. clear()
+13. getAttribute()
+14. getText()
+15. isDisplayed()
+16. isEnabled()
+17. isSelected()
+
+4. Programming Concepts
+Java Standard Edition or Core Java
+Java Programming Environment setup
+Java Keywords & Identifiers, Java Syntax, and Progam Structure
+Writing comments
+Modifiers
+Data Types and variables
+Operators
+Control Flow
+Numbers, Strings, and Characters
+Data Structures
+IO
+Exception Handling
+Object-Oriented Programming
+Project, Package, Class, Object, Methods, Constructor, Interface, Inheritance, Polymorphism, Abstraction, and Encapsulation.
+
+Actions on Web/HTML Elements
+1. Handling Browser
+Manual Actions:
+
+• Launch a Browser
+• Load/Open a web page
+• Maximize the Browser window
+• Browser Full screen
+• Return the Browser Title
+• Return the Current URL
+• Navigate to another page
+• Navigate back to the previous page
+• Navigate Forward
+• Refresh the Browser
+• Close the focused Browser window
+• Close all Browsers that opened by Selenium WebDriver
+
+Selenium WebDriver Actions:
+
+public class Sample {
+static WebDriver driver;
+//Launch Browser
+public void launchBrowser() {
+System.setProperty(“webdriver.chrome.driver”, “D://chromedriver.exe”);
+driver = new ChromeDriver();
+}
+//Close Browser
+public void closeBrowser() {
+driver.close();
+}
+public static void main(String[] args) throws InterruptedException {
+Sample obj = new Sample();
+
+//Launch Browser
+obj.launchBrowser();
+
+//Load/Open a web page
+driver.get(“https://www.google.com/”);
+
+//Maximize the Browser window
+driver.manage().window().maximize();
+
+Thread.sleep(3000);
+
+
+//Browser Full screen
+driver.manage().window().fullscreen();
+Thread.sleep(3000);
+driver.manage().window().maximize();
+
+// Return the Browser Title
+String pageTitle = driver.getTitle();
+System.out.println(pageTitle);
+
+//Return the Current URL
+String currentURL = driver.getCurrentUrl();
+System.out.println(currentURL);
+
+//Navigate to another page
+driver.navigate().to(“https://www.icicibank.com/”);
+Thread.sleep(3000);
+
+//Navigate back to the previous page
+driver.navigate().back();
+Thread.sleep(3000);
+
+//Navigate Forward
