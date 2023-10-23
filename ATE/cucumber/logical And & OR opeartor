@@ -1,0 +1,203 @@
+import java.io.*;
+ 
+class Logical {
+    public static void main(String[] args)
+    {
+        // initializing variables
+        int a = 10, b = 20, c = 20, d = 0;
+ 
+        // Displaying a, b, c
+        System.out.println("Var1 = " + a);
+        System.out.println("Var2 = " + b);
+        System.out.println("Var3 = " + c);
+ 
+        // using logical AND to verify
+        // two constraints
+        if ((a < b) && (b == c)) {
+            d = a + b + c;
+            System.out.println("The sum is: " + d);
+        }
+        else
+            System.out.println("False conditions");
+    }
+}
+Output
+Var1 = 10
+Var2 = 20
+Var3 = 20
+The sum is: 50
+Now in the below example, we can see the short-circuiting effect. Here when the execution reaches to if statement, the first condition inside the if statement is false and so the second condition is never checked. Thus the ++b(pre-increment of b) never happens and b remains unchanged.
+
+Example:
+
+
+import java.io.*;
+ 
+class shortCircuiting {
+    public static void main(String[] args)
+    {
+ 
+        // initializing variables
+        int a = 10, b = 20, c = 15;
+ 
+        // displaying b
+        System.out.println("Value of b : " + b);
+ 
+        // Using logical AND
+        // Short-Circuiting effect as the first condition is
+        // false so the second condition is never reached
+        // and so ++b(pre increment) doesn't take place and
+        // value of b remains unchanged
+        if ((a > c) && (++b > c)) {
+            System.out.println("Inside if block");
+        }
+ 
+        // displaying b
+        System.out.println("Value of b : " + b);
+    }
+}
+Output:
+
+AND Operator Output
+The output of AND Operator 
+
+2. Logical ‘OR’ Operator (||) 
+This operator returns true when one of the two conditions under consideration is satisfied or is true. If even one of the two yields true, the operator results true. To make the result false, both the constraints need to return false. 
+
+Syntax:
+
+condition1 || condition2
+Example:
+
+a = 10, b = 20, c = 20
+
+condition1: a < b
+condition2: b > c
+
+if(condition1 || condition2)
+d = a + b + c
+
+// Since one of the condition is true
+d = 50.
+
+// Java code to illustrate
+// logical OR operator
+ 
+import java.io.*;
+ 
+class Logical {
+    public static void main(String[] args)
+    {
+        // initializing variables
+        int a = 10, b = 1, c = 10, d = 30;
+ 
+        // Displaying a, b, c
+        System.out.println("Var1 = " + a);
+        System.out.println("Var2 = " + b);
+        System.out.println("Var3 = " + c);
+        System.out.println("Var4 = " + d);
+ 
+        // using logical OR to verify
+        // two constraints
+        if (a > b || c == d)
+            System.out.println(
+                "One or both + the conditions are true");
+        else
+            System.out.println(
+                "Both the + conditions are false");
+    }
+}
+Output
+Var1 = 10
+Var2 = 1
+Var3 = 10
+Var4 = 30
+One or both + the conditions are true
+Now in the below example, we can see the short-circuiting effect for OR operator. Here when the execution reaches to if statement, the first condition inside the if statement is true and so the second condition is never checked. Thus the ++b (pre-increment of b) never happens and b remains unchanged.
+
+Example
+
+
+import java.io.*;
+ 
+class ShortCircuitingInOR {
+    public static void main (String[] args) {
+         
+      // initializing variables
+        int a = 10, b = 20, c = 15;
+         
+        // displaying b
+        System.out.println("Value of b: " +b);
+         
+        // Using logical OR
+        // Short-circuiting effect as the first condition is true
+        // so the second condition is never reached
+        // and so ++b (pre-increment) doesn't take place and 
+        // value of b remains unchanged
+        if((a < c) || (++b < c))
+            System.out.println("Inside if");
+         
+        // displaying b
+        System.out.println("Value of b: " +b);
+       
+    }
+}
+Output
+Value of b: 20
+Inside if
+Value of b: 20
+3. Logical ‘NOT’ Operator (!)
+Unlike the previous two, this is a unary operator and returns true when the condition under consideration is not satisfied or is a false condition. Basically, if the condition is false, the operation returns true and when the condition is true, the operation returns false. 
+
+Syntax:
+
+!(condition)
+Example:
+
+a = 10, b = 20
+
+!(a<b) // returns false
+!(a>b) // returns true
+
+// Java code to illustrate
+// logical NOT operator
+import java.io.*;
+ 
+class Logical {
+    public static void main(String[] args)
+    {
+        // initializing variables
+        int a = 10, b = 1;
+ 
+        // Displaying a, b, c
+        System.out.println("Var1 = " + a);
+        System.out.println("Var2 = " + b);
+ 
+        // Using logical NOT operator
+        System.out.println("!(a < b) = " + !(a < b));
+        System.out.println("!(a > b) = " + !(a > b));
+    }
+}
+Output
+Var1 = 10
+Var2 = 1
+!(a < b) = true
+!(a > b) = false
+4. Implementing all logical operators on Boolean values (By default values – TRUE or FALSE)
+Syntax – 
+ boolean a = true;
+ boolean b = false;
+program –
+
+public class LogicalOperators {
+    public static void main(String[] args) {
+        boolean a = true;
+        boolean b = false;
+ 
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("a && b: " + (a && b));
+        System.out.println("a || b: " + (a || b));
+        System.out.println("!a: " + !a);
+        System.out.println("!b: " + !b);
+    }
