@@ -1,0 +1,103 @@
+JMeter Script Recording Steps:
+1. Launch JMeter by navigating to <JMETER_HOME>/bin (Example: C:\apache-jmeter-5.3\bin)
+
+2. Click jmeter.bat (Windows) or  Enter the command ‘jmeter’ (Linux/Unix). Read the article to know more about different Launching modes of JMeter
+
+
+Figure 01
+3. Select ‘Test Plan’ on the tree
+
+4. Right-click on the ‘Test Plan’ and add a ‘Thread Group’
+
+
+Figure 02: Add ‘Thread Group’
+5. Select ‘Thread Group’ and right-click to add ‘Recording Controller’.
+
+How to record JMeter script? - Recording Controller
+Figure 03: Add ‘Recording Controller’
+Note: You can also use ‘Transaction Controller’ instead of ‘Recording Controller’.
+
+How to record JMeter script? - Transaction Controller
+Figure 04: Add ‘Transaction Controller’
+6. Right-click on the ‘Test Plan’ and add ‘HTTP(S) Test Script Recorder’ which is a ‘Non-test Element’.
+
+How to record JMeter script? - HTTP(S) Test Script Recorder
+Figure 05: Add ‘HTTP(S) Test Script Recorder
+7. Under ‘HTTP(S) Test Script Recorder’, add ‘View Results Tree’ listener by right-clicking on the ‘HTTP(S) Test Script Recorder’ element and providing a .jtl file path in the Filename. This .jtl file is required to save the recording logs.
+
+How to record JMeter script?
+Figure 06: Add ‘View Results Tree’ listener
+8. In ‘HTTP(S) Test Script Recorder’, under the ‘Global Settings’ section, provide the port number as ‘8080’ and the application URL in the ‘HTTPS Domain’ text field. While providing the application URL do not use http, https, : and /.
+
+How to record JMeter script?
+Figure 07: Global Settings
+9. In ‘HTTP(S) Test Script Recorder’, under the ‘Test Plan Creation’ tab, the default value of the ‘Target Controller’ is ‘Use Recording Controller’ In case you use ‘Transaction Controller’ as shown in step 5 then select the particular transaction controller as target controller.
+
+How to record JMeter script?
+Figure 08: Set ‘Target Controller’
+10. Optional Step: On HTTP(S) Test Script Recorder, under the ‘Request Filtering’ tab, click the ‘Add’ button in ‘URL Patterns to Include’. This will create a blank entry; write ‘.*\.html’.
+Also, click the ‘Add suggested Excludes’ button in the ‘URL Patterns to Exclude’ section, this will add a new row i.e. (?i).*.(bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2). After excluding such a request pattern, JMeter does not record those requests which have excluded keywords. You can also add new custom patterns or keywords to this list.
+
+How to record JMeter script?
+Figure 09: Add ‘Include’ & ‘Exclude’ URL pattern
+11. Now, Launch Browser (Chrome/Firefox/Edge) and set Manual Proxy.   
+
+Address: localhost or IP address of your system
+Port: 8080
+
+Refer respective screenshot:
+
+Firefox:
+
+How to record JMeter script?
+Figure 10: Proxy setting in ‘Mozilla Firefox’
+Chrome:
+
+
+Figure 11: Proxy setting in ‘Google Chrome’
+12. In case the application is secured (https) then you need to add a ‘JMeter Root CA certificate’ to the browser. More details are given in ‘How to record JMeter script for a secured (https) application?‘.
+
+13. Go back to JMeter, in ‘HTTP(S) Test Script Recorder’ and click the ‘Start’ button.
+
+
+Figure 12: Start Recording
+14. A ‘Root CA Certificate’ pop-up will open. Click ‘OK’.
+
+
+Figure 13: Root CA Certificate pop-up
+15. Go to your browser and type the application URL and follow the transaction flow. You can see a floating ‘Recording Bar’ while recording the flow.
+
+16. Once navigation is completed, click the ‘Stop’ button on Recording Bar or in ‘HTTP(S) Test Script Recorder’.
+
+
+Figure 14: Floating Recording Bar
+You may be interested:
+
+Performance Testing Tutorial
+Performance Engineering Tutorial
+Micro Focus LoadRunner Tutorial
+NeoLoad Tutorial
+
+CategoriesJMeter
+TagsJMeter, Scripting
+How to record JMeter script for a secured (https) application?
+Dynamic value (correlation) in JMeter
+1 thought on “How to record JMeter script?”
+
+Paul
+February 9, 2021 at 5:14 pm
+This is insane. I just want to record a script! Should be one step: hit record button.
+
+Reply
+Leave a Comment
+Comment
+
+Name
+Name *
+Email
+Email *
+Website
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
