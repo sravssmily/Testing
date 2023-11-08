@@ -1,0 +1,85 @@
+package restassureScripts;
+
+import org.json.JSONObject;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import static org.hamcrest.Matchers.equalTo;
+
+public class Scrpit004PayloadJSON {
+	
+	
+	// Send the body with the post request with content type as JSON
+	
+	// Sending JSON data directly from test method
+	
+	@Test
+	public void postusingJSON()
+	{
+		
+		JSONObject body = new JSONObject();
+		body.put("name", "sravs");
+		body.put("salary", "4567");
+		body.put("age", "21");
+		
+		RestAssured.given()
+		.baseUri("https://dummy.restapiexample.com/api/v1")
+		.contentType(ContentType.JSON)
+		.body(body.toString())
+		.when().post("/create")
+		.then()
+		.statusCode(200)
+		.log().all()	
+		.body("data.name", equalTo("sravs")) // validate the name created is megha or not
+		.extract().path("data.id");
+	
+	//System.out.println(responseid);
+		
+		
+		
+	}
+
+}
+output:
+HTTP/1.1 200 OK
+Date: Wed, 08 Nov 2023 07:36:08 GMT
+Server: Apache
+Cache-Control: no-cache, private
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+Upgrade: h2,h2c
+Connection: Upgrade
+Cache-Control: max-age=21600
+Expires: Wed, 08 Nov 2023 13:36:08 GMT
+Vary: Accept-Encoding
+Content-Encoding: gzip
+host-header: c2hhcmVkLmJsdWVob3N0LmNvbQ==
+X-Endurance-Cache-Level: 2
+X-nginx-cache: WordPress
+Content-Length: 125
+Content-Type: application/json
+
+{
+    "status": "success",
+    "data": {
+        "name": "sravs",
+        "salary": "4567",
+        "age": "21",
+        "id": 9027
+    },
+    "message": "Successfully! Record has been added."
+}
+PASSED: restassureScripts.Scrpit004PayloadJSON.postusingJSON
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
+===============================================
+
