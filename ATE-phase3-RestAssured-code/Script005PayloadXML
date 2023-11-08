@@ -1,0 +1,81 @@
+package restassureScripts;
+import org.hamcrest.Matchers;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+public class Script005PayloadXML {
+	
+	@Test
+	public void payloadXML()
+	{
+		
+		String xmlrequestBody = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+				+ "<Pet>\r\n"
+				+ "	<id>0</id>\r\n"
+				+ "	<Category>\r\n"
+				+ "		<id>0</id>\r\n"
+				+ "		<name>string</name>\r\n"
+				+ "	</Category>\r\n"
+				+ "	<name>doggie</name>\r\n"
+				+ "	<photoUrls>\r\n"
+				+ "		<photoUrl>string</photoUrl>\r\n"
+				+ "	</photoUrls>\r\n"
+				+ "	<tags>\r\n"
+				+ "		<Tag>\r\n"
+				+ "			<id>0</id>\r\n"
+				+ "			<name>string</name>\r\n"
+				+ "		</Tag>\r\n"
+				+ "	</tags>\r\n"
+				+ "	<status>available</status>\r\n"
+				+ "</Pet>";
+		
+		RestAssured.given()
+		.baseUri("https://petstore.swagger.io")
+		.basePath("/v2/pet")
+		.contentType(ContentType.XML)
+		.accept("application/xml")
+		.body(xmlrequestBody)
+		.when().post()  // execute post request
+		.then()
+		.statusCode(200)
+		.body("Pet.name", Matchers.equalTo("doggie"))
+		.log().all();
+		
+	}
+
+}
+output:
+HTTP/1.1 200 OK
+Date: Wed, 08 Nov 2023 07:38:40 GMT
+Content-Type: application/xml
+Content-Length: 196
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+Server: Jetty(9.2.9.v20150224)
+
+<Pet>
+  <id>9223372036854775807</id>
+  <name>doggie</name>
+  <photoUrls>
+    <photoUrl>string</photoUrl>
+  </photoUrls>
+  <status>available</status>
+  <tags/>
+</Pet>
+PASSED: restassureScripts.Script005PayloadXML.payloadXML
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
+===============================================
+
