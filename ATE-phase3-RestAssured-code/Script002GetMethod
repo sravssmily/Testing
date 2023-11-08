@@ -1,0 +1,159 @@
+package restassureScripts;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class Script002GetMethod {
+	
+		@Test(enabled = false)
+		public void httpGetmethod()
+		{
+			
+			// Writing rest assured code as simple java program
+			// this is httpd get method
+			
+		Response res =	RestAssured.get("https://reqres.in/api/users?page=2"); // you will send a request
+		
+		System.out.println(res.getStatusCode());
+		
+		System.out.println(res.getBody().asString());
+		
+		System.out.println(res.getTime());
+		
+		System.out.println(res.getHeader("Content-Type"));
+		
+		int expectedstatuscode = 200;
+		int Actualstatuscode  = res.getStatusCode();
+		
+		Assert.assertEquals(expectedstatuscode, Actualstatuscode);
+			
+		}
+		
+		@Test
+		public void GetmethodBDDStyle()
+		{
+			// Method Chaining concept for api testing
+			
+			// output of method is an input to another method
+			
+			// driver.manage().window().maxamize();
+			// driver.manage().timeouts().implicitlywait();
+			
+	RestAssured
+	.given()
+	.baseUri("https://reqres.in/api/users")
+	.queryParam("page", "2")
+	.when().get()
+	.then()
+	.statusCode(200) // this method validate if the response status code is 200 or not
+	.log().all(); // fetch the response and print it on console
+	
+	; 
+	
+	
+	
+	
+	
+	// it is validation method
+	// if status code is not 200, it will give an error.
+			
+			
+			
+			
+			
+			
+		}
+		
+
+}
+
+ouput:
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+HTTP/1.1 200 OK
+Date: Wed, 08 Nov 2023 07:29:52 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+Via: 1.1 vegur
+Cache-Control: max-age=14400
+CF-Cache-Status: HIT
+Age: 277
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=hItmkL7eQriHkl5eBiio09IRBLEo01K8KGB2SS5WLnKHA3CdPWe9yObgTC7GlcNQ1lUNTGGh8Ajk1thxqTB3HERRIJn1J7D03rW1q1D9X3BtqJ87mySux7lJlg%3D%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Vary: Accept-Encoding
+Server: cloudflare
+CF-RAY: 822c1b7f8af14dd4-SIN
+Content-Encoding: gzip
+
+{
+    "page": 2,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [
+        {
+            "id": 7,
+            "email": "michael.lawson@reqres.in",
+            "first_name": "Michael",
+            "last_name": "Lawson",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+        {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        },
+        {
+            "id": 9,
+            "email": "tobias.funke@reqres.in",
+            "first_name": "Tobias",
+            "last_name": "Funke",
+            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+        },
+        {
+            "id": 10,
+            "email": "byron.fields@reqres.in",
+            "first_name": "Byron",
+            "last_name": "Fields",
+            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+        },
+        {
+            "id": 11,
+            "email": "george.edwards@reqres.in",
+            "first_name": "George",
+            "last_name": "Edwards",
+            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+        },
+        {
+            "id": 12,
+            "email": "rachel.howell@reqres.in",
+            "first_name": "Rachel",
+            "last_name": "Howell",
+            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+        }
+    ],
+    "support": {
+        "url": "https://reqres.in/#support-heading",
+        "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+    }
+}
+PASSED: restassureScripts.Script002GetMethod.GetmethodBDDStyle
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
+===============================================
+
