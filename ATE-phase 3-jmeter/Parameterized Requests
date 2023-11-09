@@ -1,0 +1,37 @@
+How to parameterize requests in Postman?
+PostmanREST APIRest Assured
+
+We can parameterize Postman requests to execute the same request with various sets of data. This is done with the help of variables along with parameters. A parameter is a part of the URL used to pass more information to the server.
+
+The data can be used in the form of a data file or an Environment variable. Parameterization is an important feature of Postman and helps to eliminate redundant tests. Parameters are enclosed in double curly braces {{parameter}}.
+
+Let us take an example of an URL:https://www.tutorialspoint.com/index.htm. We shall create a variable as URL then use it for parameterization of the request. We can refer to it in the format {{url}} in Postman.
+
+A parameter is in the form of a key-value pair. So to point to the URL:https://www.tutorialspoint.com/index.htm, we can mention it as {{url}}/index.htm. So here, the URL is the key and the value set is https://www.tutorialspoint.com.
+
+Create a Parameter Request
+Step1 − Click on the eye icon to the right of the Environment dropdown in the top right corner in the Postman application.
+
+
+
+Step 2 − Click on the Edit link in the Globals section
+
+
+
+Step 3 − MANAGE ENVIRONMENTS pop-up comes up. Enter URL for the VARIABLE field and https://www.tutorialspoint.com for INITIAL VALUE. Then click on Save.
+
+
+
+Step 4 − Click on close to move to the next screen.
+
+Step 5 − In the Http Request tab, enter {{url}}/index.htm in the address bar. Select the GET method and click on Send.
+
+
+
+Response
+Once a request has been sent, we can see the response code 200 OK populated in the Response. This signifies a successful request and a correct endpoint.
+
+
+
+
+
